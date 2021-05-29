@@ -14,6 +14,8 @@ import org.testng.asserts.SoftAssert;
 public class APITest {
 
 	
+	/* Scenario 1 - To validate the API call with different path parameters */
+	
 	  @Test public void verifyPathParam() throws Exception{ 
 	  SoftAssert softAssert =new SoftAssert(); Response allResponses = new
 	  APIHelper().getVariationOfPathParam("https://api.spacexdata.com/v4/launches"); 
@@ -23,6 +25,10 @@ public class APITest {
 	  softAssert.assertTrue(new Gson().fromJson(allResponses.getBody().asString(),JsonArray.class).size()>0);
 	  
 	  }
+	  
+	 /* Scenario 2 - To validate the Basic method and
+	  *  assert the status code 
+	  *  NOTE - This test fails as the expected status code 405 is not achieved*/
 	  
 	  @Test public void verifyBasicMethods() throws Exception{ SoftAssert
 	  softAssert = new SoftAssert(); Response response = new
@@ -40,6 +46,9 @@ public class APITest {
 	  }
 	 
 
+	/* Scenario 3 - To validate the versions with response, 
+	 * and asserting the size of the element extracted is more than 1 */
+	  
 	@Test
 	public void verifyGetDetails() throws Exception {
 

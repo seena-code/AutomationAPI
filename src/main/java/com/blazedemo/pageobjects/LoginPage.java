@@ -1,10 +1,14 @@
 package com.blazedemo.pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+import com.blazedemo.base.Base;
+
+public class LoginPage extends Base {
 
     @FindBy(id = "email")
     public WebElement txtEmail;
@@ -12,7 +16,8 @@ public class LoginPage {
     @FindBy(id = "password")
     public WebElement txtPswd;
 
-    @FindBy(className = "btn btn-primary")
+
+    @FindBy( css= "button.btn")
     public WebElement btnLogin;
 
     @FindBy(className = "remember")
@@ -35,6 +40,12 @@ public class LoginPage {
 
     @FindBy(className = "message")
     public WebElement sucessPage;
+    
+    public LoginPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver,this);
+
+    }
 
     public void enterEmailAdress(String emailAddress)
 
@@ -54,16 +65,25 @@ public class LoginPage {
         chkRemember.click();
     }
 
-    public void clickBtnLogin()
+    public Boolean clickBtnLogin()
 
     {
         btnLogin.click();
+        return true;
     }
 
     public void displaySuccessPageValidation()
 
     {
         sucessPage.isDisplayed();
+    }
+    
+    public RegisterPage clickRegister()
+
+    {
+        lnkRegister.click();
+        return PageFactory.initElements(driver, RegisterPage.class);
+
     }
 
 

@@ -16,8 +16,9 @@ public class RegisterPage {
 
     @FindBy(className = "company")
     public WebElement txtCompany;
+  
 
-    @FindBy(className = "btn btn-primary")
+    @FindBy( css= "button.btn")
     public WebElement btnRegister;
 
     public void newUserName(String name)

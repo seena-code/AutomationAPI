@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends Base {
+	
+	WebDriverWait wait=new WebDriverWait(driver, 20);
 
     @FindBy(name = "fromPort")
     public WebElement departureCity;
@@ -62,5 +65,13 @@ public class HomePage extends Base {
     public void clickOnSubmit()
     {
         btnSubmit.click();
+    }
+    
+
+    public LoginPage clickOnLogin()
+    {
+    	lnkHome.click();
+        	
+    	return PageFactory.initElements(driver, LoginPage.class);
     }
 }

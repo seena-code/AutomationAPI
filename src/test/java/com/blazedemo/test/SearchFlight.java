@@ -5,7 +5,9 @@ import com.blazedemo.base.WebDriverTestBase;
 import com.blazedemo.base.WebDriverTestBase.browserType;
 import com.blazedemo.pageobjects.ConfirmationPage;
 import com.blazedemo.pageobjects.HomePage;
+import com.blazedemo.pageobjects.LoginPage;
 import com.blazedemo.pageobjects.PurchasePage;
+import com.blazedemo.pageobjects.RegisterPage;
 import com.blazedemo.pageobjects.ReservePage;
 import org.junit.After;
 import org.junit.Before;
@@ -45,6 +47,11 @@ public class SearchFlight  {
         driver.quit();
 
     }
+    
+	/*
+	 * Scenario - validates the end to end flow of flight booking and asserts with
+	 * the assignment of booking id
+	 */
 
 @Test
     public void SearchFlight() throws Exception
@@ -80,8 +87,12 @@ public class SearchFlight  {
         testData.put("Amount", "555 USD");
         testData.put("Auth Code", "888888");
         expectedTestData= confirmationPage.verifyPurchaseDetails();
-        assertTrue(testData.equals(expectedTestData));
+        String valueID= expectedTestData.get("Id");
+        assertTrue(!valueID.isEmpty()); 
 
       }
+
+
+
 
 }
