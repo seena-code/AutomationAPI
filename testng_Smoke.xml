@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Smoke Suite" thread-count="1" parallel="classes">
 	<test name="test">
 		<classes>
 			<class name="com.blazedemo.test.SearchFlight" />
+			 <class name="com.blazedemo.test.APITest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
